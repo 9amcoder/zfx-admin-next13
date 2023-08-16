@@ -1,80 +1,25 @@
+"use client";
 import { FunctionComponent } from "react";
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import {
-  ArrowBigDown,
-  ArrowBigUp,
-  ArrowUp,
-  DollarSign,
-  Package,
-  TrendingUp,
-  Triangle,
-  Wallet,
-} from "lucide-react";
+import { ArrowBigDown, ArrowBigUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
+import ChartComponent from "./chartComponent";
+import { CHART_DATA, DASHBOARD_CART_DATA } from "@/constant/constantDataValues";
 
 interface DashBoardCartProps {}
 
-const cardData = [
-  {
-    id: 1,
-    increase: true,
-    rate: "+0.25%",
-    value: "$40,291",
-    icon: DollarSign,
-    color: "primary",
-    bgColor: "bg-yellow-400",
-    iconSize: "35",
-    footerText: "Current balance",
-  },
-  {
-    id: 2,
-    increase: true,
-    rate: "+2.05%",
-    value: "$18,291",
-    icon: Package,
-    color: "primary",
-    bgColor: "bg-blue-500",
-    iconSize: "35",
-    footerText: "Equity",
-  },
-  {
-    id: 3,
-    increase: true,
-    rate: "+0.25%",
-    value: "$12,426",
-    icon: Wallet,
-    color: "primary",
-    bgColor: "bg-sky-600",
-    iconSize: "35",
-    footerText: "E-Wallet",
-  },
-  {
-    id: 4,
-    increase: false,
-    rate: "-2.05%",
-    value: "$0",
-    icon: TrendingUp,
-    color: "primary",
-    bgColor: "bg-green-400",
-    iconSize: "35",
-    footerText: "Trading-842986",
-  },
-];
-
 const DashBoardCart: FunctionComponent<DashBoardCartProps> = () => {
   return (
-    <div className="grid w-fit md:grid-cols-2 md:gap-2">
+    <div className="grid w-full md:grid-cols-2 md:gap-2">
       <div className="md:row-span-3 ">
         <div className="grid md:grid-cols-2 gap-1 md:gap-2">
-          {cardData.map((card) => (
+          {DASHBOARD_CART_DATA.map((card) => (
             <div className="md:m-2" key={card.id}>
               <Card className="m-1 md:m-2">
                 <CardHeader>
@@ -120,10 +65,12 @@ const DashBoardCart: FunctionComponent<DashBoardCartProps> = () => {
         </div>
       </div>
       <div className="row md:row-span-1 mt-4 ">
-        <Card>
+        <Card className="m-1 md:m-0">
           <CardHeader>
-            <CardTitle>Wallet Balance 3</CardTitle>
-            <CardDescription>Wallet Balance</CardDescription>
+            <CardTitle>Statistics</CardTitle>
+            <div>
+              <ChartComponent data={CHART_DATA} />
+            </div>
           </CardHeader>
         </Card>
       </div>
