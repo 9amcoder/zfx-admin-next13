@@ -86,3 +86,26 @@ export const DASHBOARD_CART_DATA = [
     footerText: "Trading-842986",
   },
 ];
+
+export const INVOICE_DATA = [
+  {
+    id: 1,
+    accountType: "Standard STP Account",
+    server: "ZealCapitalMarketSC-Live",
+    accountCurrency: "USD",
+    leverageRatio: "200",
+    balance: "$250.00",
+    freeMargin: "$12,000",
+    equity: "$18,291",
+  },
+  {
+    id: 2,
+    accountType: "Standard STP Account",
+    server: "ZealCapitalMarketSC-Live",
+    accountCurrency: "EUR",
+    leverageRatio: "100",
+    balance: "$260.00",
+    freeMargin: "$10,000",
+    equity: "$11,291",
+  },
+];
