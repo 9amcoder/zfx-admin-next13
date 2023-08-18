@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,14 +7,14 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
-import { ChevronDown, CreditCard, User } from "lucide-react";
+} from "../ui/dropdown-menu";
+import { Button } from "../ui/button";
+import { ChevronDown, User } from "lucide-react";
 
 interface AccountComponentProps {}
 
 const AccountSwitcherComponent: FunctionComponent<AccountComponentProps> = () => {
-  const accountName = "John Doe";
+  const accountName = "ZealCapitalMarket-Live";
 
   return (
     <div>
@@ -22,21 +22,21 @@ const AccountSwitcherComponent: FunctionComponent<AccountComponentProps> = () =>
         <DropdownMenuTrigger>
           <Button variant="outline" className="rounded-full">
             <span className="font-bold">Account: </span>
-            <span className="mx-2">{accountName}</span>
+            <span className="mx-2 text-slate-400 text-xs font-light">{accountName}</span>
             <ChevronDown className="ml-2 h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuLabel>Switch Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <User className="mr-2 h-4 w-4" />
-              <span>Profile</span>
+              <span>Account A</span>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <CreditCard className="mr-2 h-4 w-4" />
-              <span>Billing</span>
+              <User className="mr-2 h-4 w-4" />
+              <span>Account B</span>
             </DropdownMenuItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>

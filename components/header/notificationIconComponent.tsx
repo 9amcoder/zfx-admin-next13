@@ -7,7 +7,7 @@ interface NotificationIconProps {
  
 const NotificationIcon: FunctionComponent<NotificationIconProps> = () => {
     return ( 
-        <AlertCircle className="h-8 w-8 mt-1 mx-4" />
+        <AlertCircle className="h-5 w-5 mt-1 mx-4 cursor-pointer" />
      );
 }
  

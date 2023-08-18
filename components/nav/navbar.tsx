@@ -1,8 +1,8 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import MobileSidebar from "@/components/mobile-sidebar";
-import NotificationIcon from "./notificationIconComponent";
-import BellIconComponent from "./belliconComponent";
+import MobileSidebar from "@/components/nav/mobile-sidebar";
+import NotificationIcon from "../header/notificationIconComponent";
+import BellIconComponent from "../header/belliconComponent";
 
 const NavBar: FunctionComponent = () => {
 

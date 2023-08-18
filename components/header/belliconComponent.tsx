@@ -7,7 +7,7 @@ interface BellIconProps {
  
 const BellIconComponent: FunctionComponent<BellIconProps> = () => {
     return ( 
-        <Bell className="h-8 w-8 mt-1 mx-4" />
+        <Bell className="h-5 w-5 mt-1 mx-4 cursor-pointer" />
      );
 }
  

@@ -1,5 +1,5 @@
 "use client";
-
+// @refresh reset
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -15,18 +15,30 @@ import {
   Settings,
   LogOut,
   Circle,
+  ChevronDown,
+  User,
+  Download,
 } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./ui/accordion";
-import { Separator } from "./ui/separator";
+} from "../ui/accordion";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import { Button } from "../ui/button";
 
 interface SidebarProps {}
 
-const routes = [
+export const routes = [
   {
     id: 1,
     label: "Dashboard",
@@ -107,14 +119,14 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
 
   return (
     <>
-      <div className="space-y-4 flex flex-col h-full sm:w-4/6 md:w-full bg-slate-100 text-[#64748B]">
-        <div className="sm:p-2 md:p-5 lg:p-10 xl:p-12 flex-1">
+      <div className="space-y-4 flex flex-col h-full sm:w-4/6 md:w-full w-full bg-cyan-50 text-[#64748B]">
+        <div className="p-2 md:p-5 lg:p-10 xl:p-12 flex-1">
           <Link href="/dashboard" className="flex items-center mb-10">
             <div className="relative h-20 w-20 mr-2">
               <Image fill alt="Logo" src="/zfx-logo.png" />
             </div>
           </Link>
-          <div className="space-y-8 flex-col">
+          <div className="space-y-7 flex-col">
             {routes.map((route) =>
               route.collapsible ? (
                 <div key={route.id}>
@@ -124,13 +136,23 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
                         <route.icon
                           className={cn("h-5 w-5 mr-3", route.color)}
                         />
-                        <AccordionTrigger>{route.label}</AccordionTrigger>
+                        <AccordionTrigger className="text-base">
+                          {route.label}
+                        </AccordionTrigger>
                       </div>
-                      <div className="flex flex-col font-medium md:items-center pt-3">
-                         <AccordionContent className="cursor-pointer hover:text-cyan-500">Deposit </AccordionContent>
-                        <AccordionContent className="cursor-pointer hover:text-cyan-500" >Withdrawal</AccordionContent>
-                        <AccordionContent className="cursor-pointer hover:text-cyan-500" >Internal Transfer </AccordionContent>
-                        <AccordionContent className="cursor-pointer hover:text-cyan-500">Transfer Out</AccordionContent>
+                      <div className="flex flex-col font-medium md:items-center pt-2 items-center">
+                        <AccordionContent className="cursor-pointer hover:text-cyan-500">
+                          Deposit
+                        </AccordionContent>
+                        <AccordionContent className="cursor-pointer hover:text-cyan-500">
+                          Withdrawal
+                        </AccordionContent>
+                        <AccordionContent className="cursor-pointer hover:text-cyan-500">
+                          Internal Transfer
+                        </AccordionContent>
+                        <AccordionContent className="cursor-pointer hover:text-cyan-500">
+                          Transfer Out
+                        </AccordionContent>
                         <Link
                           href={"/wallet"}
                           className={cn(
@@ -138,25 +160,26 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
                             pathname === "/wallet" && "text-cyan-400"
                           )}
                         >
-                            <AccordionContent>
+                          <AccordionContent>
                             <div className="flex flex-row">
-                              <div>
-                              <p>Wallet</p>
+                              <div className="basis-1/2">
+                                <p>Wallet</p>
                               </div>
-                              <div>{pathname === "/wallet" && (
-                              <Circle
-                                className={cn(
-                                  "absolute",
-                                  "rounded-full",
-                                  "h-2 w-2 mt-1 sm:ml-2 md:ml-5 lg:ml-10 xl:ml-12 ",
-                                  "text-cyan-400 bg-cyan-400"
+                              <div className="basis-1/2">
+                                {pathname === "/wallet" && (
+                                  <Circle
+                                    className={cn(
+                                      "hidden sm:block md:block lg:block xl:block",
+                                      "absolute",
+                                      "rounded-full",
+                                      "h-2 w-2 mt-1 sm:ml-2 md:ml-5 lg:ml-10 xl:ml-12 ",
+                                      "text-cyan-400 bg-cyan-400"
+                                    )}
+                                  />
                                 )}
-                              />
-                            )}</div>
-                              
-                             </div>
-                            </AccordionContent>
-                         
+                              </div>
+                            </div>
+                          </AccordionContent>
                         </Link>
                       </div>
                     </AccordionItem>
@@ -179,22 +202,35 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
                         {pathname === route.href && (
                           <Circle
                             className={cn(
+                              "hidden sm:block md:block lg:block xl:block",
                               "rounded-full",
                               "h-2 w-2 sm:ml-2 md:ml-5",
-                              "text-cyan-400 bg-cyan-400",
+                              "text-cyan-400 bg-cyan-400"
                             )}
                           />
                         )}
                       </div>
                     </Link>
                   ) : (
-                    <div className="cursor-pointer hover:text-cyan-500">{route.label}</div>
+                    <div className="cursor-pointer hover:text-cyan-500">
+                      {route.label}
+                    </div>
                   )}
                 </div>
               )
             )}
           </div>
         </div>
+       
+        <div className="flex justify-center w-full pb-8">
+          <div className="flex">
+            <Button variant="outlineBlue" className="rounded-full border-sky-500">
+              <span className="text-xs text-black-400">Download MT4</span>
+              <Download className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+        
       </div>
     </>
   );

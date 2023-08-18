@@ -6,7 +6,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "./ui/table";
+} from "../ui/table";
 import { INVOICE_DATA } from "@/constant/constantDataValues";
 
 interface TableComponentProps {}

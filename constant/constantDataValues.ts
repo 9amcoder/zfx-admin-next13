@@ -40,52 +40,7 @@ export const CHART_DATA = [
   ];
 
 
-export const DASHBOARD_CART_DATA = [
-  {
-    id: 1,
-    increase: true,
-    rate: "+0.25%",
-    value: "$40,291",
-    icon: DollarSign,
-    color: "primary",
-    bgColor: "bg-yellow-400",
-    iconSize: "35",
-    footerText: "Current balance",
-  },
-  {
-    id: 2,
-    increase: true,
-    rate: "+2.05%",
-    value: "$18,291",
-    icon: Package,
-    color: "primary",
-    bgColor: "bg-blue-500",
-    iconSize: "35",
-    footerText: "Equity",
-  },
-  {
-    id: 3,
-    increase: true,
-    rate: "+0.25%",
-    value: "$12,426",
-    icon: Wallet,
-    color: "primary",
-    bgColor: "bg-sky-600",
-    iconSize: "35",
-    footerText: "E-Wallet",
-  },
-  {
-    id: 4,
-    increase: false,
-    rate: "-2.05%",
-    value: "$0",
-    icon: TrendingUp,
-    color: "primary",
-    bgColor: "bg-green-400",
-    iconSize: "35",
-    footerText: "Trading-842986",
-  },
-];
+
 
 export const INVOICE_DATA = [
   {

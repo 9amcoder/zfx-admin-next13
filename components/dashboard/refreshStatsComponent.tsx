@@ -1,6 +1,6 @@
 import { Copy, Download, PlusCircle, QrCode, RefreshCcw } from "lucide-react";
 import { FunctionComponent } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import DashboardButtonGroup from "./dashboardButtonGroup";
 
 interface KeyStatsComponentProps {}

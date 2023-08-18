@@ -1,10 +1,10 @@
-import AccountSwitcherComponent from "@/components/accountSwitcherComponent";
-import BellIconComponent from "@/components/belliconComponent";
-import LanguageDropdown from "@/components/languageDropdown";
-import Navbar from "@/components/navbar";
-import NotificationIcon from "@/components/notificationIconComponent";
-import Sidebar from "@/components/sidebar";
-import UserProfileComponent from "@/components/userProfileComponent";
+import AccountSwitcherComponent from "@/components/header/accountSwitcherComponent";
+import BellIconComponent from "@/components/header/belliconComponent";
+import LanguageDropdown from "@/components/header/languageDropdown";
+import Navbar from "@/components/nav/navbar";
+import NotificationIcon from "@/components/header/notificationIconComponent";
+import Sidebar from "@/components/nav/sidebar";
+import UserProfileComponent from "@/components/header/userProfileComponent";
 
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
